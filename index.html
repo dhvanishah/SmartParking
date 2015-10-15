@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <!-- META SECTION -->
+        <title>Smart Parking</title>            
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <!-- END META SECTION -->
+        
+        <!-- CSS INCLUDE -->        
+        <link rel="stylesheet" type="text/css" id="theme" href="css/joli/theme-default.css"/>
+        <link rel="stylesheet" type="text/css" id="theme" href="../views/stylesheets/css/style.css"/>
+		
+		 <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+	  <script src="plugins/jquery/jquery.min.js"></script>
+	  <script src="plugins/bootstrap/bootstrap.min.js"></script>
+	  <script src="plugins/angular/angular.js"></script>
+	  <script src="plugins/angular/angular-routes.js"></script>
+	  <script src="js/routes.js"></script>
+        
+        <!-- EOF CSS INCLUDE -->
+       
+    </head>
+    <body ng-app="parking"> 
+        <!-- START PAGE CONTAINER -->
+        <div class="page-container">
+            <!-- START PAGE SIDEBAR -->
+            <div class="page-sidebar" style="height:650px">
+                <!-- START X-NAVIGATION -->
+                <ul class="x-navigation">
+                    <li class="xn-logo">
+                        <a href="index.html"><span class="heading">Smart Parking</span></a>
+                        <a href="#" class="x-navigation-control"></a>
+                    </li>
+                    <li class="xn-profile">
+                        <a href="#" class="profile-mini">
+                            <img src="images/parking-garage.jpg" alt=""/>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#dashboard"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                        
+                    </li>   
+                     <li class="">
+                        <a href="#customer"><span class="fa fa-user"></span> <span class="xn-text">Customer</span></a>
+                    </li>
+                     <li class="">
+                        <a href="#vehicle"><span class="fa fa-lock"></span> <span class="xn-text">Vehicle</span></a>
+                    </li>                 
+                    <li class="active">
+                        <a href="#parking"><span class="fa fa-building"></span> <span class="xn-text">Parking</span></a>
+                    </li>
+					<!--  <li class="">
+                        <a href="#history"><span class="fa fa-building"></span> <span class="xn-text">History</span></a>
+                    </li> -->
+                   
+                    
+                </ul>
+                <!-- END X-NAVIGATION -->
+            </div>
+            <!-- END PAGE SIDEBAR -->
+            
+            <!-- PAGE CONTENT -->
+            <div class="page-content">
+               
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap"> 
+                   <script type="text/ng-template" id="dashboard.html"> <!-- Dhvani Shah - 17-Apr-2015 - Dashboard page START-->					
+                </div>
+                <!-- END PAGE CONTENT WRAPPER -->                                
+            </div>            
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END PAGE CONTAINER -->
+		</script> <!-- Dhvani Shah - 17-Apr-2015 - Dashboard page END-->
+		
+		 <script type="text/ng-template" id="customer.html" ng-controller="customerController"> <!-- Dhvani Shah - 29-Sept-2015 - Customer page START-->
+					<div class="row">
+                        <div class="col-md-12">
+                            <!-- START DEFAULT DATATABLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">                                
+                                    <h3 class="panel-title">Customers</h3>
+									<button class="btn btn-primary" ng-click="searchCustomer();" style="width: 8%; float: right;">Search</button>
+									<input type="search" placeholder="Search" class="form-control"  id="txtCustomerSearch" style="width: 20%;float: right;">
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Date of Birth</th>
+                                                <th>License</th>
+                                                <th>Phone</th>
+                                                <th>Gender</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in customers">
+                                                <td>{{customer.first_name}} {{customer.last_name}}</td>
+                                                <td>{{customer.date_of_birth}}</th>
+                                                <td>{{customer.license}}</td>
+                                                <td>{{customer.phone}}</td>
+                                                <td>{{customer.gender}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END DEFAULT DATATABLE -->
+
+                        </div>
+                    </div>                                
+                    
+                <!-- PAGE CONTENT WRAPPER -->  
+					
+		</script> <!-- Dhvani Shah - 29-Sept-2015 - Customer page END -->
+		
+		
+<script type="text/ng-template" id="vehicle.html" ng-controller="vehicleController"> <!-- Dhvani Shah - 29-Sept-2015 - Vehicle page START-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- START DEFAULT DATATABLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">                                
+                                    <h3 class="panel-title">Vehicles</h3>
+									<button class="btn btn-primary"  ng-click="searchVehicle()" style="width: 8%; float: right;">Search</button>
+									<input type="Search" class="form-control"  id="txtVehicleSearch" style="width: 20%; float: right;">
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Vehicle</th>
+                                                <th>Vehicle Number</th>
+                                                <th>Customer Name</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="vehicle in vehicles">
+                                                <td>{{vehicle.vehicle_type}}</th>
+                                                <td>{{vehicle.vehicle_no}}</td>
+												<td>{{vehicle.first_name}} {{vehicle.last_name}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END DEFAULT DATATABLE -->
+
+                        </div>
+                    </div>                                
+                    
+                <!-- PAGE CONTENT WRAPPER -->  
+					
+		</script> <!-- Dhvani Shah - 29-Sept-2015 - Vehicle page END -->
+		
+		
+		
+		<script type="text/ng-template" id="parking.html" ng-controller="parkingController"> <!-- Dhvani Shah - 29-Sept-2015 - Parking page START-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- START DEFAULT DATATABLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">                                
+                                    <h3 class="panel-title">Parkings</h3>
+									<button class="btn btn-primary" ng-click="searchParking();" style="width: 8%; float: right;">Search</button>
+									<input type="search" placeholder="Search" class="form-control"  id="txtParkingSearch" style="width: 20%;float: right;">
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Parking Name</th>
+                                                <th>Parking Type</th>
+                                                <th>Open Spaces</th>
+												<th>Total Spaces</th>
+												<th>City</th>
+												<th>Street</th>
+												<th>Unit</th>
+												<th>Zipcode</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="parking in parkings">
+                                                <td>{{parking.parkingName}}</th>
+                                                <td>{{parking.open_spaces}}</td>
+												<td>{{parking.total_spaces}}</td>
+												<td>{{parking.parking_type}}</td>
+												<td>{{parking.city}}</td>
+												<td>{{parking.street}}</td>
+												<td>{{parking.unit}}</td>
+												<td>{{parking.zipcode}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END DEFAULT DATATABLE -->
+
+                        </div>
+                    </div>                                
+                    
+                <!-- PAGE CONTENT WRAPPER -->  
+					
+		</script> <!-- Dhvani Shah - 29-Sept-2015 - Parking page END -->
+		
+		<script type="text/ng-template" id="history.html" ng-controller="historyController"> <!-- Dhvani Shah - 29-Sept-2015 - Parking page START-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- START DEFAULT DATATABLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">                                
+                                    <h3 class="panel-title">Parkings</h3>
+									<button class="btn btn-primary" ng-click="searchHistory();" style="width: 8%; float: right;">Search</button>
+									<input type="search" placeholder="Search" class="form-control"  id="txtHistorySearch" style="width: 20%;float: right;">
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Parking Name</th>
+                                                <th>Day</th>
+                                                <th>Open Spaces</th>
+												<th>Total Spaces</th>
+												<th>City</th>
+												<th>Street</th>
+												<th>Unit</th>
+												<th>Zipcode</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="parking in parkings">
+                                                <td>{{parking.parkingName}}</th>
+                                                <td>{{parking.open_spaces}}</td>
+												<td>{{parking.total_spaces}}</td>
+												<td>{{parking.parking_type}}</td>
+												<td>{{parking.city}}</td>
+												<td>{{parking.street}}</td>
+												<td>{{parking.unit}}</td>
+												<td>{{parking.zipcode}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END DEFAULT DATATABLE -->
+
+                        </div>
+                    </div>                                
+                    
+                <!-- PAGE CONTENT WRAPPER -->  
+					
+		</script> <!-- Dhvani Shah - 29-Sept-2015 - Parking page END -->
+		
+		
+
+       
+             <div ng-view></div>	         
+        
+    <!-- START SCRIPTS -->
+    <!-- END SCRIPTS -->         
+    </body>
+</html>
+
+
+
+
+
+
